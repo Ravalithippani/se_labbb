@@ -1,0 +1,12 @@
+version: '3.8'
+services:
+  tomcat:
+    image: tomcat:9.0-jdk11-openjdk-slim
+    container_name: campus-tomcat
+    ports:
+      - "8086:8080"
+  app:
+    image: kumbhambharghavi75/campusmgmtsystem:latest
+    container_name: campus-app
+    ports:
+      - "7007:8080"
