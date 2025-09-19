@@ -1,0 +1,134 @@
+# Configure user info (done once per system)
+git config --global user.name "Your Name"
+git config --global user.email "your.email@example.com"
+
+# Check configuration
+git config --list
+
+
+# Initialize a new Git repository
+git init
+
+# Clone an existing repository from GitHub
+git clone <repo_url>
+
+
+# Check repository status
+git status
+
+# Add files to staging area
+git add <file>          # add specific file
+git add .               # add all files
+
+# Commit staged changes
+git commit -m "Commit message"
+
+# See commit history
+git log
+git log --oneline       # short view
+
+
+# Create and switch to a new branch
+git checkout -b <branch_name>
+
+# Switch to an existing branch
+git checkout <branch_name>
+
+# List all branches
+git branch
+
+# Merge branch into current branch
+git merge <branch_name>
+
+# Delete a branch
+git branch -d <branch_name>
+
+
+# Add remote repository (GitHub URL)
+git remote add origin <repo_url>
+
+# Check remote URLs
+git remote -v
+
+# Push commits to GitHub
+git push -u origin master      # first push
+git push                       # later pushes
+
+# Pull latest changes from GitHub
+git pull origin master
+
+# Fetch remote changes (without merging)
+git fetch origin
+
+
+# Unstage a file
+git reset <file>
+
+# Undo last commit (keep changes staged)
+git reset --soft HEAD~1
+
+# Undo last commit (discard changes)
+git reset --hard HEAD~1
+
+# Discard local changes to a file
+git checkout -- <file>
+
+
+
+DOCKER------
+
+🔹 Docker Basics
+docker --version             # Check Docker version
+docker info                  # Show system-wide Docker info
+docker help                  # Get help for Docker
+
+🔹 Working with Images
+docker pull <image_name>         # Download an image from Docker Hub
+docker images                    # List all images
+docker rmi <image_id>            # Remove an image
+docker rmi -f <image_id>         # Force remove an image
+docker tag <image_id> <new_tag>  # Tag an image with a new name
+docker build -t <name> .         # Build image from Dockerfile
+docker inspect <image_id>        # Get detailed info about an image
+
+🔹 Working with Containers
+docker run <image_name>                  # Run a container
+docker run -it <image_name> /bin/bash    # Run container interactively
+docker run -d <image_name>               # Run in detached mode
+docker run -p 8080:80 <image_name>       # Map port 8080 on host to 80 in container
+docker run --name mycontainer <image>    # Run container with a name
+
+docker ps                                # List running containers
+docker ps -a                             # List all containers
+docker stop <container_id>               # Stop a container
+docker start <container_id>              # Start a stopped container
+docker restart <container_id>            # Restart a container
+docker rm <container_id>                 # Remove a container
+docker rm -f <container_id>              # Force remove running container
+docker logs <container_id>               # View container logs
+docker exec -it <container_id> /bin/bash # Access running container shell
+docker inspect <container_id>            # Get detailed info about a container
+
+🔹 Docker Volumes (Data Storage)
+docker volume create <volume_name>       
+docker volume ls                        
+docker volume inspect <volume_name>     
+docker volume rm <volume_name>           # Remove a volume
+docker run -v <volume_name>:/path <img>  # Mount volume to a container
+
+🔹 Docker Networks
+docker network ls                        # List networks
+docker network create <network_name>     # Create a custom network
+docker network inspect <network_name>    # Inspect network
+docker network connect <net> <container> # Connect container to a network
+docker network disconnect <net> <cont>   # Disconnect container from network
+docker network rm <network_name>         # Remove a network
+
+🔹 Docker Compose (multi-container apps)
+docker-compose up              # Start services
+docker-compose up -d           # Start in detached mode
+docker-compose down            # Stop and remove services
+docker-compose ps              # List containers in compose project
+docker-compose logs            # View logs
+docker-compose build           # Build/rebuild services
+docker-compose restart     
